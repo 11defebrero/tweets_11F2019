@@ -229,7 +229,7 @@ ggplot(most.rt) +
 Top words
 =======================
 
-### Wordcloud {.no-title}
+### Wordcloud {.no-title .no-mobile}
 
 ```{r cloud_words, fig.width=8, fig.height=8}
 wordcloud(tweets, "words", min_count = 5, min_size = 1, max_words = 100)
@@ -247,7 +247,7 @@ wordcloud(tweets, "words", min_count = 5, min_size = 1, max_words = 30)
 Top hashtags
 ====================
 
-### Wordcloud {.no-title}
+### Wordcloud {.no-title .no-mobile}
 
 ```{r cloud_hashtags, fig.width=8, fig.height=8}
 wordcloud(tweets, "hashtags", min_count = 2, min_size = 1, max_words = 70)
@@ -264,7 +264,7 @@ wordcloud(tweets, "hashtags", min_count = 2, min_size = 1, max_words = 30)
 Top mentions
 ====================
 
-### Wordcloud {.no-title}
+### Wordcloud {.no-title .no-mobile}
 
 ```{r cloud_mentions, fig.width=8, fig.height=8}
 wordcloud(tweets, "mentions", min_count = 2, min_size = 1, max_words = 70)
