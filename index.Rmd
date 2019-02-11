@@ -2,11 +2,9 @@
 title: "11F2019 Tweets"
 output:
   flexdashboard::flex_dashboard:
-    theme: cerulean
     self_contained: FALSE
     vertical_layout: scroll
     source_code: https://github.com/11defebrero/tweets_11F2019
-    mathjax: NULL
 ---
 
 ```{r setup, include=FALSE}
@@ -69,7 +67,7 @@ Row
 
 ### 
 
-```{r timeplot, out.width='100%'}
+```{r timeplot, out.width='100%', fig.height=4.8}
 timeplot <- rtweet::ts_plot(tweets, by = "hours", tz = "Europe/Madrid") +
   theme_minimal(base_size = 14) +
   theme(plot.title = element_text(face = "bold")) +
@@ -110,16 +108,18 @@ print_tweet(mrecent)
 
 
 
-
-Most Liked {data-navmenu="Top tweets" data-width=650}
+Top tweets
 ======================================
 
-**MOST LIKED**
 
 ```{r index-11}
 n = 20
 ```
 
+Column
+------------------------
+
+*** **MOST LIKED** ***
 
 ```{r index-12, results='asis', eval=TRUE}
 ml <- tweets_most_liked(tweets, n)
@@ -132,10 +132,10 @@ for (i in seq_len(n)) {
 
 
 
-Most Retweeted {data-navmenu="Top tweets"}
-==========================================
+Column
+------------------------
 
-**MOST RETWEETED**
+*** **MOST RETWEETED** ***
 
 ```{r index-13, results='asis', eval=TRUE}
 ml <- tweets_most_RT(tweets, n)
@@ -148,10 +148,10 @@ for (i in seq_len(n)) {
 
 
 
-Most Recent {data-navmenu="Top tweets"}
-======================================
+Column
+-------------------------
 
-**MOST RECENT**
+*** **MOST RECENT** ***
 
 
 ```{r index-14, results='asis', eval=TRUE}
@@ -179,7 +179,7 @@ Column
 
 ### MOST ACTIVE
 
-```{r index-16, results = 'asis'}
+```{r index-16, fig.height=6}
 most.active <- users_most_active(tweets, n)
 ggplot(most.active) + 
   aes(reorder(screen_name, ntweets), ntweets) +
@@ -194,7 +194,7 @@ Column
 
 ### MOST LIKED
 
-```{r index-17, results = 'asis'}
+```{r index-17, fig.height=6}
 most.liked <- users_most_liked(tweets, n)
 ggplot(most.liked) + 
   aes(reorder(screen_name, nlikes), nlikes) +
@@ -211,7 +211,7 @@ Column
 
 ### MOST RETWEETED
 
-```{r index-18, results = 'asis'}
+```{r index-18, fig.height=6}
 most.rt <- users_most_RT(tweets, n)
 ggplot(most.rt) + 
   aes(reorder(screen_name, nrt), nrt) +
@@ -225,7 +225,7 @@ ggplot(most.rt) +
 Top words
 =======================
 
-```{r}
+```{r fig.width=8, fig.height=8}
 wordcloud(tweets, "words", min_count = 5, min_size = 1, max_words = 100)
 ```
 
@@ -233,15 +233,15 @@ wordcloud(tweets, "words", min_count = 5, min_size = 1, max_words = 100)
 Top hashtags
 ====================
 
-```{r}
-wordcloud(tweets, "hashtags", min_count = 2, min_size = 1, max_words = 100)
+```{r fig.width=8, fig.height=8}
+wordcloud(tweets, "hashtags", min_count = 2, min_size = 1, max_words = 80)
 ```
 
 
 Top mentions
 ====================
 
-```{r}
+```{r fig.width=8, fig.height=8}
 wordcloud(tweets, "mentions", min_count = 2, min_size = 1, max_words = 100)
 ```
 
