@@ -67,7 +67,7 @@ Row
 
 ### 
 
-```{r timeplot, out.width='100%', fig.height=4.8}
+```{r timeplot, out.width='100%'}
 timeplot <- rtweet::ts_plot(tweets, by = "hours", tz = "Europe/Madrid") +
   theme_minimal(base_size = 14) +
   theme(plot.title = element_text(face = "bold")) +
