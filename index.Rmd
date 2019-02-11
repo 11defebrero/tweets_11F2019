@@ -108,7 +108,7 @@ print_tweet(mrecent)
 
 
 
-Top tweets
+Top tweets 
 ======================================
 
 
@@ -166,7 +166,7 @@ for (i in seq_len(n)) {
 
 
 
-Top tweeters
+Top tweeters 
 =====================
 
 ```{r index-15}
@@ -225,8 +225,16 @@ ggplot(most.rt) +
 Top words
 =======================
 
+### Wordcloud {.no-title}
+
 ```{r fig.width=8, fig.height=8}
 wordcloud(tweets, "words", min_count = 5, min_size = 1, max_words = 100)
+```
+
+### Wordcloud {.no-title .mobile}
+
+```{r }
+wordcloud(tweets, "words", min_count = 5, min_size = 1, max_words = 50)
 ```
 
 
@@ -234,7 +242,7 @@ Top hashtags
 ====================
 
 ```{r fig.width=8, fig.height=8}
-wordcloud(tweets, "hashtags", min_count = 2, min_size = 1, max_words = 80)
+wordcloud(tweets, "hashtags", min_count = 2, min_size = 1, max_words = 70)
 ```
 
 
@@ -242,7 +250,7 @@ Top mentions
 ====================
 
 ```{r fig.width=8, fig.height=8}
-wordcloud(tweets, "mentions", min_count = 2, min_size = 1, max_words = 100)
+wordcloud(tweets, "mentions", min_count = 2, min_size = 1, max_words = 70)
 ```
 
 
